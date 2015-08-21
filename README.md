@@ -8,7 +8,7 @@ example:  mat <- makeCacheMatrix(1:100)
 In this case I will create a nice 10x10 matrix for you.
 
 Also note that there is no set function in here.  I found the function
-was a it redundant and just performed the set instructions
+was a bit redundant and just performed the set instructions
 when makeCacheMatrix is used to create an object.
 
 Here's how to use the makeCacheMatrix:
