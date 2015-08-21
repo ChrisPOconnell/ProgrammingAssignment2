@@ -10,6 +10,10 @@
 ##example:  mat <- makeCacheMatrix(1:100)
 ##In this case I will create a nice 10x10 matrix for you.
 
+##Also note that there is no set function in here.  I found the function
+##was a it redundant and just performed the set instructions
+##when makeCacheMatrix is used to create an object.
+
 makeCacheMatrix <- function(x = matrix()) {
   invm <- NULL                      #This is required to prevent a previously defined
                                     #invm from returning and falsey being reported
@@ -44,8 +48,8 @@ makeCacheMatrix <- function(x = matrix()) {
     mi %*% mni
   }
   
-  #This code sets what functions are available for the object created with
-  #makeCacheMatrix
+  #This code creates a list of what functions are available for
+  #the object created with makeCacheMatrix
   list(setinvm = setinvm,
        getmat = getmat,
        getinvm = getinvm,
@@ -56,12 +60,17 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getinvm()
-  if(!is.null(m)) {
+  if(!is.null(m)) {                   #This if statement checks to see if x's 
+                                      #invm was ever set.  If it's not NULL
+                                      #then return the already calculated value.
     message("getting cached data")
     return(m)
   }
-  data <- x$getmat()
+  data <- x$getmat()                  
   m <- solve(data)
-  x$setinvm(m)
+  x$setinvm(m)                        #this is really cool!  This line hands the calculated
+                                      #inverse matrix back to the object, setting the invm.
+                                      #If you hadn't already run mat$setinvm() on you can now
+                                      #run mat$getinvm() and you'll see the inverse has been set.
   m
 }
