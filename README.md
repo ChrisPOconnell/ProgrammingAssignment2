@@ -1,15 +1,15 @@
-##I've made the makeCacheMatrix really nice for you.
-##No need to send any complicated argument in.  Just 
-##type in the numbers you want in the matrix.
-##I'll check to see if the matrix can be square.
-##If the numbers can't create a square matrix I'll
-##let you know.
-##example:  mat <- makeCacheMatrix(1:100)
-##In this case I will create a nice 10x10 matrix for you.
+I've made the makeCacheMatrix really nice for you.
+No need to send any complicated argument in.  Just 
+type in the numbers you want in the matrix.
+I'll check to see if the matrix can be square.
+If the numbers can't create a square matrix I'll
+let you know.
+example:  mat <- makeCacheMatrix(1:100)
+In this case I will create a nice 10x10 matrix for you.
 
-##Also note that there is no set function in here.  I found the function
-##was a it redundant and just performed the set instructions
-##when makeCacheMatrix is used to create an object.
+Also note that there is no set function in here.  I found the function
+was a it redundant and just performed the set instructions
+when makeCacheMatrix is used to create an object.
 
 Here's how to use the makeCacheMatrix:
 
