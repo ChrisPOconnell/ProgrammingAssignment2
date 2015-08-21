@@ -12,31 +12,31 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   invm <- NULL                      #This is required to prevent a previously defined
-  #invm from returning and falsey being reported
-  #as the inversion of our current matrix.
+                                    #invm from returning and falsey being reported
+                                    #as the inversion of our current matrix.
   len <- length(x)                  #Determines length of x.
-  #Used for two things:
-  #1st, determine if matrix can be square
-  #2nd, create  sq
+                                    #Used for two things:
+                                    #1st, determine if matrix can be square
+                                    #2nd, create  sq
   sq <- sqrt(len)           
   mod <- sqrt(len) %% 1              #This determines if the matrix can be square
   if (mod!=0){
     print("Sorry, the values you provided can't create a square matrix.")
   }
   else {
-    #if (mod == 0 && len!=0) { #If matrix can be square, enter perform if statement.
-    mt<- matrix(x,nrow=sq,ncol=sq) #using the square root of the values you provide
-    #a square matrix 
-    xvalues<<-x
-    #print("Congrats, your thingy is created")
-    
-    getmat <- function() return(mt)
-    setinvm <- function(matvalue) invm <<- solve(matvalue)
-    
-    
-    getinvm <- function() invm                
-    getxvalues <- function() print(xvalues)
-    
+  #if (mod == 0 && len!=0) { #If matrix can be square, enter perform if statement.
+      mt<- matrix(x,nrow=sq,ncol=sq) #using the square root of the values you provide
+                                      #a square matrix 
+      xvalues<<-x
+      #print("Congrats, your thingy is created")
+      
+      getmat <- function() return(mt)
+      setinvm <- function() invm <<- solve(mt)
+                                                
+                                                
+      getinvm <- function() invm                
+      getxvalues <- function() print(xvalues)
+
   }
   
   #  I wasn't able to get this function working, but was attempting to 
@@ -46,14 +46,14 @@ makeCacheMatrix <- function(x = matrix()) {
     mi <- getinvm()
     mi %*% mni
   }
+      
+      list(setinvm = setinvm,
+           getmat = getmat,
+           getinvm = getinvm,
+           getxvalues = getxvalues,
+           multiplymatrixes = multiplymatrixes)
+  }      
   
-  list(setinvm = setinvm,
-       getmat = getmat,
-       getinvm = getinvm,
-       getxvalues = getxvalues,
-       multiplymatrixes = multiplymatrixes)
-}      
-
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getinvm()
