@@ -24,10 +24,18 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
+
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
+  
+  invm <- x$getinvm()
+  if(!is.null(invm)) {
+    message("getting cached data")
+    return(invm)
+  }
+  
+  data <- x$getmx()
+  
+  invmm <- solve(data, ...)
+  x$setinvm(invm)
+  invm
 }
-
-
-x<-80
-a<-sqrt(x)
