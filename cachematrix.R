@@ -9,9 +9,9 @@
 ##let you know.
 ##example:  mat <- makeCacheMatrix(1:100)
 ##te that there is no set function in here.  I found the function
-##was a it redundant and just performed the set instructions
+##was a bit redundant and just performed the set instructions
 ##when makeCacheMatrix is used to create an object.
-In this case I will create a nice 10x10 matrix for you.
+##In this case I will create a nice 10x10 matrix for you.
 
 ##Also no
 makeCacheMatrix <- function(x = matrix()) {
